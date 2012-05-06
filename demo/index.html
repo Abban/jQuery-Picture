@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	
+	<title>A jQuery plugin to help ease the transition to responsive images | Jquery Picture</title>
+		
+	<meta name="description" content="A jQuery plugin to help ease the transition to responsive images">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+	
+	<script src="assets/js/modernizr.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="../js/jquery-picture-min.js"></script>
+
+    <script>
+
+    $(function(){
+        $('figure').each(function(){
+            $(this).picture({
+                'type' : 'figure',
+                'breakpoints' : [440, 600]
+            });
+        });
+    });
+
+    </script>
+
+    <link media="screen" rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+<body>
+
+    <div id="resize"></div>
+
+	<header>
+        <h1>jQuery Picture</h1>
+        <p>A jQuery plugin to help ease the transition to responsive images</p>
+    </header>
+
+	<h2>Overview</h2>
+
+	<p>jQuery Picture is a plugin to add support for responsive images to your layouts. It supports both figure elements with some custom data attributes and the new proposed picture format. This plugin will be made redundant when the format is approved and implemented by browsers. Lets hope that happens soon. In the meantime this plugin will be kept up to date with latest developments.</p>
+
+    <figure data-media="assets/images/small.png" data-media440="assets/images/medium.png" data-media600="assets/images/large.png">
+        
+        <img src="assets/images/large.png" alt="A Half Brained Idea">
+
+        <figcaption>
+            
+            Fig 1. Drag your browser window in an out to see the image source change.
+
+        </figcaption>
+
+    </figure>
+
+    <h2>Usage</h2>
+
+	<p>You have a choice of two ways to use the plugin, with <code>&lt;figure&gt;</code> tags or with the newly proposed <code>&lt;picture&gt;</code> and <code>&lt;source&gt;</code> tags. Bear in mind that the picture and source tags have only recently been proposed and are not yet valid HTML code.</p>
+
+    <h3>Initialise the plugin</h3>
+
+    <p>Here is an example of how the plugin is initialised:</p>
+
+<pre>
+$(function(){
+    $('figure.responsive').each(function(){
+        $(this).picture({
+            'type' : 'figure',
+            'breakpoints' : [440, 600, 800]
+        });
+    });
+});
+</pre>
+    
+    <p>It takes two options the type and the breakpoints. Type can be either figure or picture and the breakpoints are your designs breakpoints passed through as an array.</p>
+
+    <table>
+        
+        <thead>
+            
+            <tr>
+                
+                <th>Key</th>
+                <th>Default</th>
+                <th>Description</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+            
+            <tr>
+                
+                <td>type</td>
+                <td>figure</td>
+                <td>Type can be either 'figure' or 'picture'.</td>
+
+            </tr>
+
+            <tr>
+                
+                <td>breakpoints</td>
+                <td>false</td>
+                <td>This is an array of your breakpoints. You pass it through like this: <code>breakpoints: [400, 600, 800]</code></td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <h3>Usage with Figures</h3>
+
+    <p>To use the plugin with your figure tags you need to add data attributes to them for each size of the image you want to use. It's a good idea to add a class to the tag too so it doesn't select every figure on the page. Heres a code example:</p>
+
+<pre>&lt;figure class="responsive" data-media="assets/images/small.png" data-media440="assets/images/medium.png" data-media600="assets/images/large.png"&gt;   
+    &lt;img src="assets/images/large.png" alt="A Half Brained Idea"&gt;
+&lt;/figure&gt;</pre>
+
+    <p>You can see that there are data attributes added to the figure tag that hold the url of the different size images. In this example the attribute with no number is for the 0-400 area. Each one also specifies the break point that image is to be used at. If javascript is turned off it defaults to the image specified in the image tag. You initialise the plugin like this:</p>
+
+<pre>
+$(function(){
+    $('figure.responsive').each(function(){
+        $(this).picture({
+            'type' : 'figure',
+            'breakpoints' : [440, 600]
+        });
+    });
+});
+</pre>
+
+    <h3>Usage with Pictures</h3>
+
+    <p>Using the plugin with the new picture tag works in a similar way. Instead of the images being declared in data attributes they're declared using <code>&lt;source&gt;</code> tags:</p>
+
+<pre>
+&lt;picture alt="description of image"&gt;
+    &lt;source src="assets/images/small.jpg"&gt;
+    &lt;source src="assets/images/medium.jpg" media="(min-width:400px)"&gt;
+    &lt;source src="assets/images/large.jpg" media="(min-width:800px)"&gt;
+    &lt;img src="assets/images/large.jpg" alt="description of image"&gt;
+&lt;/picture&gt;
+</pre>
+
+    <p>And then it's initialised in a similar way:</p>
+
+<pre>
+$(function(){
+    $('picture').each(function(){
+        $(this).picture({
+            'type' : 'picture',
+            'breakpoints' : [440, 600]
+        });
+    });
+});
+</pre>
+    
+    <h4>Closing note:</h4>
+
+    <p>That's all there is to it at this point in time but bear in mind that I'm writing this on a Sunday and I wrote the plugin only yesterday. I'm planning on doing some proper browser testing and optimisation and demo creation tomorrow and will update this then.</p>
+
+<footer>
+    This plugin was created by <a href="http://abandon.ie">Abban Dunne</a>.
+    <span>
+        
+        <a href="https://twitter.com/abbandunne" class="twitter-follow-button" data-show-count="false">Follow @abbandunne</a>
+
+    </span>
+</footer>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+/* ==================== */
+/* = Default Stylings = */
+/* ==================== */
+
+body{
+    color: #222;
+    font: normal normal 400 100%/1.5em georgia,serif;
+    margin: 3em auto;
+    max-width: 40em;
+    padding: 0 2em;
+    text-shadow: 0 -1px 1px rgba(255, 255, 255, 0.01);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+a:link{ color: #3366CC; }
+a:visited{ color: #224488; }
+
+h1,h2,h3,h4,h5,h6{ font-weight: 400 }
+
+h1{
+    font-size: 225%;
+    line-height: 1.3334em;
+    margin: 0 0 .1666em;
+}
+h2{
+    font-size: 175%;
+    line-height: 1.28571429em;
+    margin: 0 0 .35714286em;
+}
+h3{
+    font-size: 137.5%;
+    line-height: 1.3636em;
+    margin: 0 0 .5em;
+}
+h4,h5,h6{
+    font-size: 112.5%; 
+    line-height: 1.3334em; 
+    margin: 0 0 .7778em;
+}
+
+ol,ul{ 
+    list-style-position: outside; 
+    padding: 0;
+}
+ol ol,ol ul,ul ol,ul ul{ margin: 0 0 .75em 2em }
+
+blockquote,ol,p,ul{
+    display: block;
+    margin: 0 0 1.5em;
+}
+blockquote{
+    border-left: solid .1em #E4E4E4;
+    color: #919191;
+    padding: 0 1.5em 0 1.4em;
+}
+code{
+    font: normal normal 87.5%/1.71428571em monospace,sans-serif;
+    background: #eee;
+}
+img {
+    display: block;
+    margin: 1.5em auto;
+}
+pre{ 
+    display: block;
+    font: normal normal 87.5%/1.71428571em monospace,sans-serif;
+    padding: 1.71428571/2em 1.71428571em;
+    background: #eee;
+    display:block;
+    overflow:auto;
+}
+table{
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    width: 100%
+}
+td,th{
+    border: solid .1em #eee;
+    font-size: 87.5%;
+    line-height: 1.71428571em;
+    text-align: left;
+    padding: 5px 10px;
+    font-weight:normal;
+}
+th{
+    background: #eee;
+    border-right: 1px solid #ddd;
+}
+th:last-child{
+    border-right: 1px solid #eee;
+}
+
+figure{
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    img{
+        width: 100%;
+        margin-bottom:0;
+    }
+}
+
+figcaption{
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    font-size: 12px;
+    margin-bottom: 1.5em;
+}
+
+/* =================== */
+/* = Custom Stylings = */
+/* =================== */
+
+header{
+    padding-left: 130px;
+    background: url(../images/logo.png) top left no-repeat;
+    p{
+        color:#666;
+        font-weight:normal;
+        font-style:italic;
+        font-size: 14px;
+    }
+}
+
+#resize{
+    position: fixed;
+    right:0;
+    bottom:0;
+    background: url(../images/bg.png) bottom right no-repeat;
+    height: 77px;
+    width: 77px;
+}
+
+footer{
+    font-size:small;
+    border-top: 1px solid #ddd;
+    padding: 1.5em 0;
+    span{
+        float:right;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #resize{
+        display:none;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    header{
+        background: transparent;
+        padding-left:0;
+    }
+    #resize{
+        display:none;
+    }
+}
