@@ -22,6 +22,8 @@
 
 		this.each(function(){
 
+			$(this).find('img').attr('src', ' ');
+
 			var breakpoints = new Array();
 
 			var windowWidth, currentMedia, element, timeoutOffset;

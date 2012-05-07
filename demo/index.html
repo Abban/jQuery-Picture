@@ -54,7 +54,11 @@
 
     <figure data-media="assets/images/small.png" data-media440="assets/images/medium.png" data-media600="assets/images/large.png">
         
-        <img src="assets/images/large.png" alt="A Half Brained Idea">
+        <img src="assets/images/blank.gif" alt="A Half Brained Idea">
+
+        <noscript>
+            <img src="assets/images/large.png" alt="A Half Brained Idea">
+        </noscript>
 
         <figcaption>
             
@@ -83,10 +87,13 @@ $(function(){
     <p>To use the plugin with your figure tags you need to add data attributes to them for each size of the image you want to use. It's a good idea to add a class to the tag too so it doesn't select every figure on the page. Heres a code example:</p>
 
 <pre>&lt;figure class="responsive" data-media="assets/images/small.png" data-media440="assets/images/medium.png" data-media600="assets/images/large.png"&gt;   
-    &lt;img src="assets/images/large.png" alt="A Half Brained Idea"&gt;
+    &lt;img src="assets/images/blank.gif" alt="A Half Brained Idea"&gt;
+    &lt;noscript&gt;
+        &lt;img src="assets/images/large.png" alt="A Half Brained Idea"&gt;
+    &lt;/noscript&gt;
 &lt;/figure&gt;</pre>
 
-    <p>You can see that there are data attributes added to the figure tag that hold the url of the different size images. In this example the attribute with no number is for the 0-400 area. Each one also specifies the break point that image is to be used at. If javascript is turned off it defaults to the image specified in the image tag. You initialise the plugin like this:</p>
+    <p>You can see that there are data attributes added to the figure tag that hold the url of the different size images. In this example the attribute with no number is for the 0-400 area. Each one also specifies the break point that image is to be used at. If javascript is turned off it defaults to the image specified in the noscript tag. You initialise the plugin like this:</p>
 
 <pre>
 $(function(){
@@ -103,7 +110,10 @@ $(function(){
     &lt;source src="assets/images/small.png"&gt;
     &lt;source src="assets/images/medium.png" media="(min-width:440px)"&gt;
     &lt;source src="assets/images/large.png" media="(min-width:600px)"&gt;
-    &lt;img src="assets/images/large.png" alt="A Half Brained Idea"&gt;
+    &lt;img src="assets/images/blank.gif" alt="A Half Brained Idea"&gt;
+    &lt;noscript&gt;
+        &lt;img src="assets/images/large.png" alt="A Half Brained Idea"&gt;
+    &lt;/noscript&gt;
 &lt;/picture&gt;
 </pre>
 
