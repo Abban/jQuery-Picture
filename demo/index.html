@@ -82,7 +82,7 @@ $(function(){
 });
 </pre>
     
-    <p>It takes two options the type and the breakpoints. Type can be either figure or picture and the breakpoints are your designs breakpoints passed through as an array.</p>
+    <p>It takes in one option, breakpoints which are your designs breakpoints and are passed through as an array.</p>
 
     <table>
         
@@ -125,7 +125,6 @@ $(function(){
 <pre>
 $(function(){
     $('figure.responsive').picture({
-        'type' : 'figure',
         'breakpoints' : [440, 600]
     });
 });
@@ -138,8 +137,8 @@ $(function(){
 <pre>
 &lt;picture alt="description of image"&gt;
     &lt;source src="assets/images/small.png"&gt;
-    &lt;source src="assets/images/medium.png" media="(min-width:400px)"&gt;
-    &lt;source src="assets/images/large.png" media="(min-width:800px)"&gt;
+    &lt;source src="assets/images/medium.png" media="(min-width:440px)"&gt;
+    &lt;source src="assets/images/large.png" media="(min-width:600px)"&gt;
     &lt;img src="assets/images/large.png" alt="A Half Brained Idea"&gt;
 &lt;/picture&gt;
 </pre>
