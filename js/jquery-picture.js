@@ -21,123 +21,128 @@
 	$.fn.picture = function(args){
 
 		var settings = $.extend({
-			'type' : 'figure',
-			'breakpoints' : [100, 200]
+			'breakpoints' : false
 		}, args);
 
-		var windowWidth, currentMedia, element, timeoutOffset;
+		this.each(function(){
 
-		// Save off the element so it can be easily used inside a function
-		element = this;
-		
-		// Initialise the images
-		getCurrentMedia();
+			var windowWidth, currentMedia, element, timeoutOffset;
 
-		// Only call the image resize function 200ms after window stops being resized
-		timeoutOffset = false;
-		
-		$(window).resize(function(){
+			// Save off the element so it can be easily used inside a function
+			element = $(this);
 			
-			if(timeoutOffset !== false)
-				clearTimeout(timeoutOffset);
+			// Initialise the images
+			getCurrentMedia();
+
+			// Only call the image resize function 200ms after window stops being resized
+			timeoutOffset = false;
 			
-			timeoutOffset = setTimeout(getCurrentMedia, 200);
-		
-		});
-
-
-		/**
-		 * getCurrentMedia
-		 * 
-		 * Checks the window width off the media query types and selects the current one.
-		 * Calls the setPicture or setFigure function to set the image.
-		 * 
-		 */
-		function getCurrentMedia(){
-
-			var c = 0;
-			windowWidth = $(window).width();
-
-			// Set the c variable to the current media width
-			$.each(settings.breakpoints, function(i,v){
+			$(window).resize(function(){
 				
-				if(windowWidth > v)
-					c = v;
-
+				if(timeoutOffset !== false)
+					clearTimeout(timeoutOffset);
+				
+				timeoutOffset = setTimeout(getCurrentMedia, 200);
+			
 			});
 
-			if(currentMedia !== c){
-				currentMedia = c;
 
-				if(settings.type == 'figure')
-					setFigure();
-				else
-					setPicture();
+			/**
+			 * getCurrentMedia
+			 * 
+			 * Checks the window width off the media query types and selects the current one.
+			 * Calls the setPicture or setFigure function to set the image.
+			 * 
+			 */
+			function getCurrentMedia(){
+
+				var c = 0;
+				windowWidth = $(window).width();
+
+				// Set the c variable to the current media width
+				$.each(settings.breakpoints, function(i,v){
+					
+					if(windowWidth > v)
+						c = v;
+
+				});
+
+				if(currentMedia !== c){
+					currentMedia = c;
+
+					//console.log(element.get(0).tagName);
+
+					if(element.get(0).tagName == 'FIGURE')
+						setFigure();
+					else
+						setPicture();
+				}
+
 			}
 
-		}
+
+			/**
+			 * setPicture
+			 * 
+			 * Pulls the image src and media attributes from the source tags and sets
+			 * the src of the enclosed img tag to the appropriate one.
+			 * 
+			 */
+			function setPicture(){
+
+				var sizes = new Object();
+
+				element.find('source').each(function(){
+
+					var media, path, num;
+					media = $(this).attr('media');
+					path = $(this).attr('src');
+
+					if(media)
+						num = media.replace(/[^\d.]/g, '');
+					else
+						num = 0;
+
+					sizes[num] = path;
+
+				});
+
+				element.find('img').attr('src', sizes[currentMedia]);
+
+			}
 
 
-		/**
-		 * setPicture
-		 * 
-		 * Pulls the image src and media attributes from the source tags and sets
-		 * the src of the enclosed img tag to the appropriate one.
-		 * 
-		 */
-		function setPicture(){
+			/**
+			 * setFigure
+			 * 
+			 * Pulls the image src and and media values from the data attributes
+			 * and sets the src of the enclosed img tag to the appropriate one.
+			 * 
+			 */
+			function setFigure(){
 
-			var sizes = new Object();
+				var sizes = new Object();
 
-			element.find('source').each(function(){
+				var mediaObj = element.data();
 
-				var media, path, num;
-				media = $(this).attr('media');
-				path = $(this).attr('src');
+				$.each(mediaObj, function(media, path){
 
-				if(media)
+					var num;
+
 					num = media.replace(/[^\d.]/g, '');
-				else
-					num = 0;
 
-				sizes[num] = path;
+					if(!num)
+						num = 0;
 
-			});
+					sizes[num] = path;
 
-			element.find('img').attr('src', sizes[currentMedia]);
+				});
 
-		}
+				element.find('img').attr('src', sizes[currentMedia]);
 
+			}
 
-		/**
-		 * setFigure
-		 * 
-		 * Pulls the image src and and media values from the data attributes
-		 * and sets the src of the enclosed img tag to the appropriate one.
-		 * 
-		 */
-		function setFigure(){
-
-			var sizes = new Object();
-
-			var mediaObj = element.data();
-
-			$.each(mediaObj, function(media, path){
-
-				var num;
-
-				num = media.replace(/[^\d.]/g, '');
-
-				if(!num)
-					num = 0;
-
-				sizes[num] = path;
-
-			});
-
-			element.find('img').attr('src', sizes[currentMedia]);
-
-		}
+		});
 
 	};
 

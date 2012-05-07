@@ -1,3 +1,32 @@
+/* http://sonspring.com/journal/clearing-floats */
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+.clearfix:before,
+.clearfix:after {
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+/*
+  The following zoom:1 rule is specifically for IE6 + IE7.
+  Move to separate stylesheet if invalid CSS is a problem.
+*/
+.clearfix {
+  zoom: 1;
+}
 /* ==================== */
 /* = Default Stylings = */
 /* ==================== */
@@ -120,6 +149,9 @@ figure img {
   width: 100%;
   margin-bottom: 0;
 }
+picture img {
+  width: 100%;
+}
 figcaption {
   margin: 0;
   padding: 0;
@@ -136,6 +168,7 @@ figcaption {
 /* =================== */
 header {
   padding-left: 130px;
+  margin-bottom: 2em;
   background: url(../images/logo.png) top left no-repeat;
 }
 header p {
@@ -143,6 +176,29 @@ header p {
   font-weight: normal;
   font-style: italic;
   font-size: 14px;
+}
+#buttons {
+  margin: 0 -5% 1.5em;
+}
+#buttons a {
+  display: block;
+  background: #ddd;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 2.6em;
+  width: 40%;
+  margin: 0 5%;
+  float: left;
+  text-decoration: none;
+  color: #111;
+}
+#buttons a:hover,
+#buttons a:focus {
+  background: #3366CC;
+  color: #fff;
 }
 #resize {
   position: fixed;
@@ -163,6 +219,9 @@ footer span {
 @media screen and (max-width: 600px) {
   #resize {
     display: none;
+  }
+  #buttons a {
+    line-height: 2em;
   }
 }
 @media screen and (max-width: 440px) {

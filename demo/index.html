@@ -18,16 +18,13 @@
 	
 	<script src="assets/js/modernizr.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="../js/jquery-picture-min.js"></script>
+    <script src="../js/jquery-picture.js"></script>
 
     <script>
 
     $(function(){
-        $('figure').each(function(){
-            $(this).picture({
-                'type' : 'figure',
-                'breakpoints' : [440, 600]
-            });
+        $('figure, picture').picture({
+            'breakpoints' : [440, 600]
         });
     });
 
@@ -44,6 +41,14 @@
         <h1>jQuery Picture</h1>
         <p>A jQuery plugin to help ease the transition to responsive images</p>
     </header>
+
+    <div id="buttons" class="clearfix">
+        
+        <a href="http://github.com/Abban/jQuery-Picture/zipball/master">Download</a>
+
+        <a href="http://github.com/Abban/jQuery-Picture">Github Page</a>
+
+    </div>
 
 	<h2>Overview</h2>
 
@@ -71,11 +76,8 @@
 
 <pre>
 $(function(){
-    $('figure.responsive').each(function(){
-        $(this).picture({
-            'type' : 'figure',
-            'breakpoints' : [440, 600, 800]
-        });
+    $('figure.responsive').picture({
+        'breakpoints' : [440, 600, 800]
     });
 });
 </pre>
@@ -97,14 +99,6 @@ $(function(){
         </thead>
 
         <tbody>
-            
-            <tr>
-                
-                <td>type</td>
-                <td>figure</td>
-                <td>Type can be either 'figure' or 'picture'.</td>
-
-            </tr>
 
             <tr>
                 
@@ -130,11 +124,9 @@ $(function(){
 
 <pre>
 $(function(){
-    $('figure.responsive').each(function(){
-        $(this).picture({
-            'type' : 'figure',
-            'breakpoints' : [440, 600]
-        });
+    $('figure.responsive').picture({
+        'type' : 'figure',
+        'breakpoints' : [440, 600]
     });
 });
 </pre>
@@ -145,10 +137,10 @@ $(function(){
 
 <pre>
 &lt;picture alt="description of image"&gt;
-    &lt;source src="assets/images/small.jpg"&gt;
-    &lt;source src="assets/images/medium.jpg" media="(min-width:400px)"&gt;
-    &lt;source src="assets/images/large.jpg" media="(min-width:800px)"&gt;
-    &lt;img src="assets/images/large.jpg" alt="description of image"&gt;
+    &lt;source src="assets/images/small.png"&gt;
+    &lt;source src="assets/images/medium.png" media="(min-width:400px)"&gt;
+    &lt;source src="assets/images/large.png" media="(min-width:800px)"&gt;
+    &lt;img src="assets/images/large.png" alt="A Half Brained Idea"&gt;
 &lt;/picture&gt;
 </pre>
 
@@ -156,11 +148,8 @@ $(function(){
 
 <pre>
 $(function(){
-    $('picture').each(function(){
-        $(this).picture({
-            'type' : 'picture',
-            'breakpoints' : [440, 600]
-        });
+    $('picture').picture({
+        'breakpoints' : [440, 600]
     });
 });
 </pre>
@@ -179,6 +168,20 @@ $(function(){
 </footer>
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24013812-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 
 </body>
 </html>
