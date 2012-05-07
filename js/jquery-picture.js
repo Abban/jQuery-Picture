@@ -5,7 +5,7 @@
  * 
  * May 2012
  * 
- * @version 0.6
+ * @version 0.7
  * @author Abban Dunne http://abandon.ie
  * @license MIT
  * 
