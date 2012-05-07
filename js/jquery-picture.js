@@ -5,7 +5,7 @@
  * 
  * May 2012
  * 
- * @version 0.7
+ * @version 0.8
  * @author Abban Dunne http://abandon.ie
  * @license MIT
  * 
@@ -143,7 +143,15 @@
 
 				});
 
-				element.find('img').attr('src', sizes[currentMedia]);
+				if(element.find('img').length == 0){
+
+					element.append('<img src="' + sizes[currentMedia] + '" alt="' + element.attr('alt') + '">');
+
+				}else{
+					
+					element.find('img').attr('src', sizes[currentMedia]);
+
+				}
 
 			}
 
@@ -174,7 +182,15 @@
 
 				});
 
-				element.find('img').attr('src', sizes[currentMedia]);
+				if(element.find('img').length == 0){
+
+					element.prepend('<img src="' + sizes[currentMedia] + '" alt="' + element.attr('title') + '">');
+
+				}else{
+
+					element.find('img').attr('src', sizes[currentMedia]);
+
+				}
 
 			}
 

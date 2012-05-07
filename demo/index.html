@@ -23,7 +23,7 @@
     <script>
 
     $(function(){
-        $('figure').picture();
+        $('figure, picture').picture();
     });
 
     </script>
@@ -52,9 +52,7 @@
 
 	<p>jQuery Picture is a tiny (1kb) plugin to add support for responsive images to your layouts. It supports both figure elements with some custom data attributes and the new proposed picture format. This plugin will be made redundant when the format is approved and implemented by browsers. Lets hope that happens soon but in the meantime this plugin will be kept up to date with latest developments.</p>
 
-    <figure data-media="assets/images/small.png" data-media440="assets/images/medium.png" data-media600="assets/images/large.png">
-        
-        <img src="assets/images/blank.gif" alt="A Half Brained Idea">
+    <figure data-media="assets/images/small.png" data-media440="assets/images/medium.png" data-media600="assets/images/large.png" title="A Half Brained Idea">
 
         <noscript>
             <img src="assets/images/large.png" alt="A Half Brained Idea">
@@ -86,8 +84,7 @@ $(function(){
 
     <p>To use the plugin with your figure tags you need to add data attributes to them for each size of the image you want to use. It's a good idea to add a class to the tag too so it doesn't select every figure on the page. Heres a code example:</p>
 
-<pre>&lt;figure class="responsive" data-media="assets/images/small.png" data-media440="assets/images/medium.png" data-media600="assets/images/large.png"&gt;   
-    &lt;img src="assets/images/blank.gif" alt="A Half Brained Idea"&gt;
+<pre>&lt;figure class="responsive" data-media="assets/images/small.png" data-media440="assets/images/medium.png" data-media600="assets/images/large.png" title="A Half Brained Idea"&gt;
     &lt;noscript&gt;
         &lt;img src="assets/images/large.png" alt="A Half Brained Idea"&gt;
     &lt;/noscript&gt;
@@ -106,11 +103,10 @@ $(function(){
     <p>Using the plugin with the new picture tag works in a similar way. Instead of the images being declared in data attributes they're declared using <code>&lt;source&gt;</code> tags:</p>
 
 <pre>
-&lt;picture alt="description of image"&gt;
+&lt;picture alt="A Half Brained Idea"&gt;
     &lt;source src="assets/images/small.png"&gt;
     &lt;source src="assets/images/medium.png" media="(min-width:440px)"&gt;
     &lt;source src="assets/images/large.png" media="(min-width:600px)"&gt;
-    &lt;img src="assets/images/blank.gif" alt="A Half Brained Idea"&gt;
     &lt;noscript&gt;
         &lt;img src="assets/images/large.png" alt="A Half Brained Idea"&gt;
     &lt;/noscript&gt;
