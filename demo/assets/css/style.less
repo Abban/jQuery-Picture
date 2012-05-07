@@ -211,7 +211,10 @@ footer{
     font-size:small;
     border-top: 1px solid #ddd;
     padding: 1.5em 0;
-    span{
+    p{
+        float:left;
+    }
+    div{
         float:right;
     }
 }
@@ -234,5 +237,11 @@ footer{
     }
     #resize{
         display:none;
+    }
+    footer{
+        div{
+            clear:both;
+            float:left;
+        }
     }
 }

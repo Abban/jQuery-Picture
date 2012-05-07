@@ -213,7 +213,10 @@ footer {
   border-top: 1px solid #ddd;
   padding: 1.5em 0;
 }
-footer span {
+footer p {
+  float: left;
+}
+footer div {
   float: right;
 }
 @media screen and (max-width: 600px) {
@@ -231,5 +234,9 @@ footer span {
   }
   #resize {
     display: none;
+  }
+  footer div {
+    clear: both;
+    float: left;
   }
 }
