@@ -23,9 +23,7 @@
     <script>
 
     $(function(){
-        $('figure, picture').picture({
-            'breakpoints' : [440, 600]
-        });
+        $('figure').picture();
     });
 
     </script>
@@ -72,45 +70,13 @@
 
     <h3>Initialise the plugin</h3>
 
-    <p>Here is an example of how the plugin is initialised:</p>
+    <p>To initialise it you just add <code>.picture()</code> to the element you want to apply it to. It only works on figure and picture tags for now:</p>
 
 <pre>
 $(function(){
-    $('figure.responsive').picture({
-        'breakpoints' : [440, 600, 800]
-    });
+    $('figure.responsive').picture();
 });
 </pre>
-    
-    <p>It takes in one option, breakpoints which are your designs breakpoints and are passed through as an array.</p>
-
-    <table>
-        
-        <thead>
-            
-            <tr>
-                
-                <th>Key</th>
-                <th>Default</th>
-                <th>Description</th>
-
-            </tr>
-
-        </thead>
-
-        <tbody>
-
-            <tr>
-                
-                <td>breakpoints</td>
-                <td>false</td>
-                <td>This is an array of your breakpoints. You pass it through like this: <code>breakpoints: [400, 600, 800]</code></td>
-
-            </tr>
-
-        </tbody>
-
-    </table>
 
     <h3>Usage with Figures</h3>
 
@@ -124,9 +90,7 @@ $(function(){
 
 <pre>
 $(function(){
-    $('figure.responsive').picture({
-        'breakpoints' : [440, 600]
-    });
+    $('figure.responsive').picture();
 });
 </pre>
 
@@ -147,15 +111,103 @@ $(function(){
 
 <pre>
 $(function(){
-    $('picture').picture({
-        'breakpoints' : [440, 600]
-    });
+    $('picture').picture();
 });
 </pre>
     
-    <h4>Closing note:</h4>
+    <h4>To Do:</h4>
 
-    <p>That's all there is to it at this point in time but bear in mind that I'm writing this on a Sunday and I wrote the plugin only yesterday. I'm planning on doing some proper browser testing and optimisation and demo creation tomorrow and will update this then.</p>
+    <p>That's all there is to it at this point in time but bear in mind that I'm writing this on a <strike>Sunday</strike> Monday morning and I wrote the plugin only 2 days ago. I need to do some proper browser testing and then I'll finish the compatibility list and make a couple of standalone demos.</p>
+
+    <table>
+        
+        <thead>
+            
+            <tr>
+                
+                <th>Browser</th>
+                <th>Status</th>
+                <th>Description</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+            
+            <tr>
+
+                <td>Chrome</td>
+                
+                <td class="green">Working</td>
+                
+                <td>Looks grand so it does.</td>
+            
+            </tr>
+
+            <tr>
+
+                <td>Safari</td>
+                
+                <td class="green">Working</td>
+                
+                <td>Also looks grand.</td>
+            
+            </tr>
+
+            <tr>
+
+                <td>Mobile Safari</td>
+                
+                <td class="green">Working</td>
+                
+                <td>Looks grand on iPhone, yet to test on the iPad.</td>
+            
+            </tr>
+
+            <tr>
+
+                <td>Firefox 10 OSX</td>
+                
+                <td class="green">Working</td>
+                
+                <td>Oh so grand.</td>
+            
+            </tr>
+
+            <tr>
+
+                <td>Firefox 6 OSX</td>
+                
+                <td class="green">Working</td>
+                
+                <td>Testing on a random old FF version.</td>
+            
+            </tr>
+
+            <tr>
+
+                <td>IE9</td>
+                
+                <td class="green">Working</td>
+                
+                <td>I thought it wasn't gonna work but it does.</td>
+            
+            </tr>
+
+            <tr>
+
+                <td>IE7/8</td>
+                
+                <td class="red">Borked</td>
+                
+                <td>IE7 and 8 don't support media queries. I need to look into how to force that with modernizr or some such. If anyone knows how please <a href="http://twitter.com/abbandunne">tweet me</a>.</td>
+            
+            </tr>
+
+        </tbody>
+
+    </table>
 
 <footer class="clearfix">
     <p>Plugin created by <a href="http://abandon.ie">Abban Dunne</a>.</p>

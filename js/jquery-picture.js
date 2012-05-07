@@ -20,11 +20,9 @@
 
 	$.fn.picture = function(args){
 
-		var settings = $.extend({
-			'breakpoints' : false
-		}, args);
-
 		this.each(function(){
+
+			var breakpoints = new Array();
 
 			var windowWidth, currentMedia, element, timeoutOffset;
 
@@ -32,7 +30,7 @@
 			element = $(this);
 			
 			// Initialise the images
-			getCurrentMedia();
+			getCurrentMedia(true);
 
 			// Only call the image resize function 200ms after window stops being resized
 			timeoutOffset = false;
@@ -54,13 +52,51 @@
 			 * Calls the setPicture or setFigure function to set the image.
 			 * 
 			 */
-			function getCurrentMedia(){
+			function getCurrentMedia(init){
+
+				if(init){
+					
+					if(element.get(0).tagName == 'FIGURE'){
+
+						var mediaObj = element.data();
+
+						$.each(mediaObj, function(media){
+
+							var num;
+
+							num = media.replace(/[^\d.]/g, '');
+
+							if(num)
+								breakpoints.push(num);
+
+						});
+
+					}else{
+
+						element.find('source').each(function(){
+
+							var media, num;
+
+							media = $(this).attr('media');
+
+							if(media){
+
+								num = media.replace(/[^\d.]/g, '');
+
+								breakpoints.push(num);
+							}
+
+						});
+
+					}
+
+				}
 
 				var c = 0;
 				windowWidth = $(window).width();
 
 				// Set the c variable to the current media width
-				$.each(settings.breakpoints, function(i,v){
+				$.each(breakpoints, function(i,v){
 					
 					if(windowWidth > v)
 						c = v;
@@ -69,8 +105,6 @@
 
 				if(currentMedia !== c){
 					currentMedia = c;
-
-					//console.log(element.get(0).tagName);
 
 					if(element.get(0).tagName == 'FIGURE')
 						setFigure();

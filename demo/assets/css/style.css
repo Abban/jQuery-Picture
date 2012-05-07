@@ -136,6 +136,14 @@ th {
 th:last-child {
   border-right: 1px solid #eee;
 }
+td.green {
+  background: #a7b559;
+  color: #fff;
+}
+td.red {
+  background: #9d4b37;
+  color: #fff;
+}
 figure {
   margin: 0;
   padding: 0;
