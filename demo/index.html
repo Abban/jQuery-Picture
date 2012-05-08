@@ -16,11 +16,11 @@
 
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 	
-	<script src="assets/js/modernizr.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="../js/jquery-picture.js"></script>
+	<script type="text/javascript" src="assets/js/modernizr.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-picture-min.js"></script>
 
-    <script>
+    <script type="text/javascript">
 
     $(function(){
         $('figure, picture').picture();
@@ -205,9 +205,9 @@ $(function(){
 
                 <td>IE7/8</td>
                 
-                <td class="red">Borked</td>
+                <td class="green">Working</td>
                 
-                <td>IE7 and 8 don't support media queries. I need to look into how to force that with modernizr or some such. If anyone knows how please <a href="http://twitter.com/abbandunne">tweet me</a>.</td>
+                <td>IE7 and 8 don't support media queries. They still load the appropriate images however as you can see in this demo. If you want to force media queries on these browsers however you can try <a href="https://github.com/scottjehl/Respond">Respond</a>.</td>
             
             </tr>
 

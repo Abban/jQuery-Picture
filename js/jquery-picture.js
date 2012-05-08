@@ -5,7 +5,7 @@
  * 
  * May 2012
  * 
- * @version 0.8
+ * @version 0.9
  * @author Abban Dunne http://abandon.ie
  * @license MIT
  * 
@@ -56,7 +56,7 @@
 
 				if(init){
 					
-					if(element.get(0).tagName == 'FIGURE'){
+					if(element.get(0).tagName.toLowerCase() == 'figure'){
 
 						var mediaObj = element.data();
 
@@ -98,7 +98,7 @@
 				// Set the c variable to the current media width
 				$.each(breakpoints, function(i,v){
 					
-					if(windowWidth > v)
+					if(windowWidth > v && c < v)
 						c = v;
 
 				});
@@ -106,7 +106,7 @@
 				if(currentMedia !== c){
 					currentMedia = c;
 
-					if(element.get(0).tagName == 'FIGURE')
+					if(element.get(0).tagName.toLowerCase() == 'figure')
 						setFigure();
 					else
 						setPicture();
