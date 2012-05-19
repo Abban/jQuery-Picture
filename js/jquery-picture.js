@@ -143,7 +143,7 @@
 
 				if(element.find('img').length == 0){
 
-					element.append('<img src="' + sizes[currentMedia] + '" alt="' + element.attr('alt') + '">');
+					element.append('<img src="' + sizes[currentMedia] + '" style="' + element.attr('style') + '" alt="' + element.attr('alt') + '">');
 
 				}else{
 					
