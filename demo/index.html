@@ -54,9 +54,11 @@
 
     <figure data-media="assets/images/small.png" data-media440="assets/images/medium.png" data-media600="assets/images/large.png" title="A Half Brained Idea">
 
-        <noscript>
-            <img src="assets/images/large.png" alt="A Half Brained Idea">
-        </noscript>
+        <a href="http://abandon.ie">
+            <noscript>
+                <img src="assets/images/large.png" alt="A Half Brained Idea">
+            </noscript>
+        </a>
 
         <figcaption>
             
@@ -120,6 +122,18 @@ $(function(){
     $('picture').picture();
 });
 </pre>
+
+    <h3>Using images with links</h3>
+
+    <p>In both use cases if you wrap a link around the noscript tag it will insert the image inside it:</p>
+
+<pre>&lt;figure class="responsive" data-media="assets/images/small.png" data-media440="assets/images/medium.png" data-media600="assets/images/large.png" title="A Half Brained Idea"&gt;
+    &lt;a href="http://abandon.ie"&gt;
+        &lt;noscript&gt;
+            &lt;img src="assets/images/large.png" alt="A Half Brained Idea"&gt;
+        &lt;/noscript&gt;
+     &lt;/a&gt;
+&lt;/figure&gt;</pre>
     
     <h4>To Do:</h4>
 

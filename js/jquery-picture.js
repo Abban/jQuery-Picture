@@ -106,7 +106,7 @@
 				if(currentMedia !== c){
 					currentMedia = c;
 
-					if(element.get(0).tagName.toLowerCase() == 'figure')
+					if(element.get(0).tagName.toLowerCase() == 'figure' || element.get(0).tagName.toLowerCase() == 'a')
 						setFigure();
 					else
 						setPicture();
@@ -143,7 +143,17 @@
 
 				if(element.find('img').length == 0){
 
-					element.append('<img src="' + sizes[currentMedia] + '" style="' + element.attr('style') + '" alt="' + element.attr('alt') + '">');
+					var prep = '<img src="' + sizes[currentMedia] + '" style="' + element.attr('style') + '" alt="' + element.attr('alt') + '">';
+
+					if(element.find('a').length == 0){
+
+						element.append(prep);
+
+					}else{
+
+						element.find('a').append(prep);
+
+					}
 
 				}else{
 					
@@ -182,7 +192,17 @@
 
 				if(element.find('img').length == 0){
 
-					element.prepend('<img src="' + sizes[currentMedia] + '" alt="' + element.attr('title') + '">');
+					var prep = '<img src="' + sizes[currentMedia] + '" alt="' + element.attr('title') + '">';
+
+					if(element.find('a').length == 0){
+
+						element.prepend(prep);
+
+					}else{
+
+						element.find('a').prepend(prep);
+
+					}
 
 				}else{
 
