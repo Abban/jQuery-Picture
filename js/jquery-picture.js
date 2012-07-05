@@ -34,6 +34,10 @@
 
 			var windowWidth, currentMedia, element, timeoutOffset;
 
+			// Check the device pixel ratio
+			var PixelRatio = 1;
+			if(window.devicePixelRatio !== undefined) PixelRatio = window.devicePixelRatio;
+
 			// Save off the element so it can be easily used inside a function
 			element = $(this);
 			
@@ -105,11 +109,11 @@
 				// Check if user defined container, otherwise take window
 				if (settings.container == null){
 				
-					windowWidth = $(window).width();
+					windowWidth = ($(window).width()) * PixelRatio;
 				
 				}else{
 				
-					windowWidth = $(settings.container).width();
+					windowWidth = ($(settings.container).width()) * PixelRatio;
 				
 				}
 
