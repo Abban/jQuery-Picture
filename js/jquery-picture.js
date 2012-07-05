@@ -20,6 +20,14 @@
 
 	$.fn.picture = function(args){
 
+		var defaults = {
+
+			container : null
+
+        };
+		
+		var settings = $.extend({}, defaults, args);
+
 		this.each(function(){
 
 			var breakpoints = new Array();
@@ -93,12 +101,22 @@
 				}
 
 				var c = 0;
-				windowWidth = $(window).width();
+				
+				// Check if user defined container, otherwise take window
+				if (settings.container == null){
+				
+					windowWidth = $(window).width();
+				
+				}else{
+				
+					windowWidth = $(settings.container).width();
+				
+				}
 
 				// Set the c variable to the current media width
 				$.each(breakpoints, function(i,v){
 					
-					if(windowWidth > v && c < v)
+					if(parseInt(windowWidth) >= parseInt(v) && parseInt(c) <= parseInt(v))
 						c = v;
 
 				});
@@ -106,7 +124,7 @@
 				if(currentMedia !== c){
 					currentMedia = c;
 
-					if(element.get(0).tagName.toLowerCase() == 'figure' || element.get(0).tagName.toLowerCase() == 'a')
+					if(element.get(0).tagName.toLowerCase() == 'figure')
 						setFigure();
 					else
 						setPicture();
