@@ -167,13 +167,13 @@
 
 					var prep = '<img src="' + sizes[currentMedia] + '" style="' + element.attr('style') + '" alt="' + element.attr('alt') + '">';
 
-					if(element.find('a').length == 0){
+					if($('>a', element).length == 0){
 
 						element.append(prep);
 
 					}else{
 
-						element.find('a').append(prep);
+						$('>a', element).append(prep);
 
 					}
 
@@ -216,13 +216,13 @@
 
 					var prep = '<img src="' + sizes[currentMedia] + '" alt="' + element.attr('title') + '">';
 
-					if(element.find('a').length == 0){
+					if($('>a', element).length == 0){
 
-						element.prepend(prep);
+						element.append(prep);
 
 					}else{
 
-						element.find('a').prepend(prep);
+						$('>a', element).append(prep);
 
 					}
 
