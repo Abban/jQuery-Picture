@@ -81,7 +81,7 @@
 							num = media.replace(/[^\d.]/g, '');
 
 							if(num)
-								breakpoints.push(num);
+								breakpoints.push(parseInt(num));
 
 						});
 
@@ -97,13 +97,13 @@
 
 								num = media.replace(/[^\d.]/g, '');
 
-								breakpoints.push(num);
+								breakpoints.push(parseInt(num));
 							}
 
 						});
 
 					}
-					breakpoints.sort(); //make sure the largest breakpoint is the last
+					breakpoints.sort(function(a,b){return a - b}); //make sure the largest breakpoint is the last 
 
 				}
 
