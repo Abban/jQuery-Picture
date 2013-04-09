@@ -21,11 +21,17 @@
     <script type="text/javascript" src="../js/jquery-picture-min.js"></script>
 
     <script type="text/javascript">
-
     $(function(){
         $('figure, picture').picture();
+        $('.plug > a').click(function(){
+            $(this).parent().slideUp();
+            localStorage.plugClosed = true;
+            return false;
+        });
+        if(localStorage.getItem('plugClosed') === null){
+            $('.plug').show();
+        }
     });
-
     </script>
 
     <link media="screen" rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -34,6 +40,12 @@
 <body>
 
     <div id="resize"></div>
+
+    <div class="plug" style="display:none;">
+        <a href="#">close</a>
+        <div><strong>Shameless Plug</strong></div>
+        <p>I just finished making a responsive CSS/LESS/SCSS framework called Responsable. Check it out <a href="http://responsablecss.com">here</a>.</p>
+    </div>
 
 	<header>
         <h1>jQuery Picture</h1>
@@ -233,14 +245,14 @@ $(function(){
         <li><a href="http://wordpress.org/extend/plugins/hammy/">Hammy</a>: Plugin to add responsive support for your WordPress site by <a href="http://twitter.com/noeltock">@noeltock</a>.</li>
     </ul>
 
-<footer class="clearfix">
-    <p>Plugin created by <a href="http://abandon.ie">Abban Dunne</a>.</p>
-    <div>
-        
-        <a href="https://twitter.com/abbandunne" class="twitter-follow-button" data-show-count="false">Follow @abbandunne</a>
+    <footer class="clearfix">
+        <p>Plugin created by <a href="http://abandon.ie">Abban Dunne</a>.</p>
+        <div>
+            
+            <a href="https://twitter.com/abbandunne" class="twitter-follow-button" data-show-count="false">Follow @abbandunne</a>
 
-    </div>
-</footer>
+        </div>
+    </footer>
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 

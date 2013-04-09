@@ -108,7 +108,6 @@ img {
   margin: 1.5em auto;
 }
 pre {
-  display: block;
   font: normal normal 87.5%/1.71428571em monospace, sans-serif;
   padding: 0.857142855em 1.71428571em;
   background: #eee;
@@ -226,6 +225,27 @@ footer p {
 }
 footer div {
   float: right;
+}
+.plug {
+  background: #e1f0de;
+  padding: 0.75em;
+  margin-top: -1.5em;
+  margin-bottom: 1.5em;
+  position: relative;
+}
+.plug > a {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 16px;
+  width: 16px;
+  background: url(../images/close.png);
+  overflow: hidden;
+  text-indent: 100%;
+}
+.plug p {
+  margin-bottom: 0;
 }
 @media screen and (max-width: 600px) {
   #resize {

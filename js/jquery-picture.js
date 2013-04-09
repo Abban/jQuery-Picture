@@ -24,7 +24,8 @@
 
 			container : null,
 			ignorePixelRatio: false,
-			useLarger: false  //jump to the next larger image, becasue we scale it to 100% width
+			useLarger: false,
+			inlineDimensions: false
 
         };
 		
@@ -192,6 +193,15 @@
 
 				}
 
+				if(settings.inlineDimensions){
+
+					$("<img/>").attr("src", $('img', element).attr("src")).load(function(){
+						$('img', element).attr('height', this.height);
+						$('img', element).attr('width', this.width);
+				    });
+
+				}
+
 			}
 
 
@@ -223,7 +233,7 @@
 
 				if(element.find('img').length == 0){
 
-					var prep = '<img src="' + sizes[currentMedia] + '" alt="' + element.attr('title') + '">';
+					var prep = '<img src="' + sizes[currentMedia] + '" style="' + element.attr('style') + '" alt="' + element.attr('title') + '">';
 
 					if($('>a', element).length == 0){
 
@@ -237,7 +247,16 @@
 
 				}else{
 
-					element.find('img').attr('src', sizes[currentMedia]);
+					$('img', element).attr('src', sizes[currentMedia]);
+
+				}
+
+				if(settings.inlineDimensions){
+
+					$("<img/>").attr("src", $('img', element).attr("src")).load(function(){
+						$('img', element).attr('height', this.height);
+						$('img', element).attr('width', this.width);
+				    });
 
 				}
 
