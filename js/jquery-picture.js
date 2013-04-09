@@ -43,6 +43,9 @@
 
 			// Save off the element so it can be easily used inside a function
 			element = $(this);
+
+			//Delete the noscript we don't need it now anyway
+			element.find('noscript').remove();
 			
 			// Initialise the images
 			getCurrentMedia(true);
