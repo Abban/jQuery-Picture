@@ -23,7 +23,8 @@
 		var defaults = {
 
 			container : null,
-			ignorePixelRatio: false
+			ignorePixelRatio: false,
+			useLarger: false  //jump to the next larger image, becasue we scale it to 100% width
 
         };
 		
@@ -80,7 +81,7 @@
 							num = media.replace(/[^\d.]/g, '');
 
 							if(num)
-								breakpoints.push(num);
+								breakpoints.push(parseInt(num));
 
 						});
 
@@ -96,12 +97,13 @@
 
 								num = media.replace(/[^\d.]/g, '');
 
-								breakpoints.push(num);
+								breakpoints.push(parseInt(num));
 							}
 
 						});
 
 					}
+					breakpoints.sort(function(a,b){return a - b}); //make sure the largest breakpoint is the last 
 
 				}
 
@@ -125,6 +127,12 @@
 						c = v;
 
 				});
+
+				if (settings.useLarger ){
+					idx = breakpoints.indexOf(c);
+					if (idx < breakpoints.length-1) //make sure we're not already using the largest breakpoint
+						c = breakpoints[ idx + 1];
+				}
 
 				if(currentMedia !== c){
 					currentMedia = c;
