@@ -178,7 +178,10 @@
 
 				if(element.find('img').length == 0){
 
-					var prep = '<img src="' + sizes[currentMedia] + '" style="' + element.attr('style') + '" alt="' + element.attr('alt') + '">';
+					var prep = '<img src="' + sizes[currentMedia] + '"'
+					if(element.attr('style')) prep += ' style="' + element.attr('style') + '"';
+					if(element.attr('alt')) prep += ' alt="' + element.attr('alt') + '"';
+					prep += '>';
 
 					if($('>a', element).length == 0){
 
@@ -236,7 +239,10 @@
 
 				if(element.find('img').length == 0){
 
-					var prep = '<img src="' + sizes[currentMedia] + '" style="' + element.attr('style') + '" alt="' + element.attr('title') + '">';
+					var prep = '<img src="' + sizes[currentMedia] + '"';
+					if(element.attr('style')) prep += ' style="' + element.attr('style') + '"';
+					if(element.attr('title')) prep += ' alt="' + element.attr('title') + '"';
+					prep += '>';
 
 					if($('>a', element).length == 0){
 
