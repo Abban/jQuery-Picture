@@ -25,6 +25,7 @@
 			container : null,
 			ignorePixelRatio: false,
 			useLarger: false,
+			insertElement: '>a',
 			inlineDimensions: false
 
         };
@@ -183,13 +184,13 @@
 					if(element.attr('alt')) prep += ' alt="' + element.attr('alt') + '"';
 					prep += '>';
 
-					if($('>a', element).length == 0){
+					if($(settings.insertElement, element).length == 0){
 
 						element.append(prep);
 
 					}else{
 
-						$('>a', element).append(prep);
+						$(settings.insertElement, element).append(prep);
 
 					}
 
@@ -244,13 +245,13 @@
 					if(element.attr('title')) prep += ' alt="' + element.attr('title') + '"';
 					prep += '>';
 
-					if($('>a', element).length == 0){
+					if($(settings.insertElement, element).length == 0){
 
 						element.append(prep);
 
 					}else{
 
-						$('>a', element).append(prep);
+						$(settings.insertElement, element).append(prep);
 
 					}
 
